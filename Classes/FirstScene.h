@@ -2,6 +2,7 @@
 #define __FIRSTSCENE_SCENE_H__
 
 #include "cocos2d.h"
+#include "ui/CocosGUI.h"
 
 class FirstScene : public cocos2d::Layer
 {
@@ -17,6 +18,9 @@ public:
     
     // implement the "static create()" method manually
     CREATE_FUNC(FirstScene);
+    
+    void onButtonTouchEvent(Ref* pSender, cocos2d::ui::Widget::TouchEventType type);
+
 };
 
 #endif // __FIRSTSCENE_SCENE_H__

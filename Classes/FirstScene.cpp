@@ -63,9 +63,33 @@ bool FirstScene::init()
     // add the label as a child to this layer
     this->addChild(label, 1);
     
+    auto button = cocos2d::ui::Button::create();
+    button->loadTextures("button.png", "button_r.png");
+    Size layerSize = this->getContentSize();
+    button->setPosition(Vec2(layerSize.width/2, layerSize.height/2));
+    button->setPressedActionEnabled(true);
+    button->addTouchEventListener(CC_CALLBACK_2(FirstScene::onButtonTouchEvent, this));
+    this->addChild(button, 10);
+    
     return true;
 }
 
+void FirstScene::onButtonTouchEvent(Ref* pSender, cocos2d::ui::Widget::TouchEventType type) {
+    switch (type) {
+        case cocos2d::ui::Widget::TouchEventType::BEGAN:
+            CCLOG("BEGAN");
+            break;
+        case cocos2d::ui::Widget::TouchEventType::MOVED:
+            CCLOG("MOVED");
+            break;
+        case cocos2d::ui::Widget::TouchEventType::ENDED:
+            CCLOG("ENDED");
+            break;
+        case cocos2d::ui::Widget::TouchEventType::CANCELED:
+            CCLOG("CANCELED");
+            break;
+    }
+}
 
 void FirstScene::menuCloseCallback(Ref* pSender)
 {
