@@ -3,13 +3,13 @@
 
 USING_NS_CC;
 
-Scene* FirstScene::createScene()
+Scene* SecondScene::createScene()
 {
     // 'scene' is an autorelease object
     auto scene = Scene::create();
     
     // 'layer' is an autorelease object
-    auto layer = FirstScene::create();
+    auto layer = SecondScene::create();
 
     // add layer as a child to scene
     scene->addChild(layer);
@@ -19,7 +19,7 @@ Scene* FirstScene::createScene()
 }
 
 // on "init" you need to initialize your instance
-bool FirstScene::init()
+bool SecondScene::init()
 {
     //////////////////////////////
     // 1. super init first
@@ -39,7 +39,7 @@ bool FirstScene::init()
     auto closeItem = MenuItemImage::create(
                                            "CloseNormal.png",
                                            "CloseSelected.png",
-                                           CC_CALLBACK_1(FirstScene::menuCloseCallback, this));
+                                           CC_CALLBACK_1(SecondScene::menuCloseCallback, this));
     
 	closeItem->setPosition(Vec2(origin.x + visibleSize.width - closeItem->getContentSize().width/2 ,
                                 origin.y + closeItem->getContentSize().height/2));
@@ -55,7 +55,7 @@ bool FirstScene::init()
     // add a label shows "Hello World"
     // create and initialize a label
     
-    auto label = LabelTTF::create("First Scene", "Arial", 24);
+    auto label = LabelTTF::create("Second Scene", "Arial", 24);
     
     // position the label on the center of the screen
     label->setPosition(Vec2(origin.x + visibleSize.width/2,
@@ -69,13 +69,13 @@ bool FirstScene::init()
     Size layerSize = this->getContentSize();
     button->setPosition(Vec2(layerSize.width/2, layerSize.height/2));
     button->setPressedActionEnabled(true);
-    button->addTouchEventListener(CC_CALLBACK_2(FirstScene::onButtonTouchEvent, this));
+    button->addTouchEventListener(CC_CALLBACK_2(SecondScene::onButtonTouchEvent, this));
     this->addChild(button, 10);
     
     return true;
 }
 
-void FirstScene::onButtonTouchEvent(Ref* pSender, cocos2d::ui::Widget::TouchEventType type) {
+void SecondScene::onButtonTouchEvent(Ref* pSender, cocos2d::ui::Widget::TouchEventType type) {
     switch (type) {
         case cocos2d::ui::Widget::TouchEventType::BEGAN:
             CCLOG("BEGAN");
@@ -85,7 +85,7 @@ void FirstScene::onButtonTouchEvent(Ref* pSender, cocos2d::ui::Widget::TouchEven
             break;
         case cocos2d::ui::Widget::TouchEventType::ENDED:
             CCLOG("ENDED");
-            Director::getInstance()->replaceScene(TransitionFlipX::create(1.0f, SecondScene::createScene()));
+            Director::getInstance()->replaceScene(TransitionFlipX::create(1.0f, FirstScene::createScene()));
             break;
         case cocos2d::ui::Widget::TouchEventType::CANCELED:
             CCLOG("CANCELED");
@@ -93,7 +93,7 @@ void FirstScene::onButtonTouchEvent(Ref* pSender, cocos2d::ui::Widget::TouchEven
     }
 }
 
-void FirstScene::menuCloseCallback(Ref* pSender)
+void SecondScene::menuCloseCallback(Ref* pSender)
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WP8) || (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT)
 	MessageBox("You pressed the close button. Windows Store Apps do not implement a close button.","Alert");
