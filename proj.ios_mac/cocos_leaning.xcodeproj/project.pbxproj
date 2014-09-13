@@ -71,6 +71,8 @@
 		CA4F456619BE042A000D5D85 /* button_r.png in Resources */ = {isa = PBXBuildFile; fileRef = CA4F456319BE042A000D5D85 /* button_r.png */; };
 		CA4F456719BE042A000D5D85 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = CA4F456419BE042A000D5D85 /* button.png */; };
 		CA4F456819BE042A000D5D85 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = CA4F456419BE042A000D5D85 /* button.png */; };
+		CA5CA8D619C34B9C004E73AE /* SecondScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CA5CA8D519C34B9C004E73AE /* SecondScene.cpp */; };
+		CA5CA8D719C34B9C004E73AE /* SecondScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CA5CA8D519C34B9C004E73AE /* SecondScene.cpp */; };
 		D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620B132DFF330009C878 /* OpenAL.framework */; };
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
@@ -273,6 +275,8 @@
 		CA4F3F1919BB54AA000D5D85 /* FirstScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FirstScene.h; path = ../Classes/FirstScene.h; sourceTree = "<group>"; };
 		CA4F456319BE042A000D5D85 /* button_r.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_r.png; sourceTree = "<group>"; };
 		CA4F456419BE042A000D5D85 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
+		CA5CA8D519C34B9C004E73AE /* SecondScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SecondScene.cpp; path = ../Classes/SecondScene.cpp; sourceTree = "<group>"; };
+		CA5CA8DA19C34BAD004E73AE /* SecondScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecondScene.h; path = ../Classes/SecondScene.h; sourceTree = "<group>"; };
 		D44C620B132DFF330009C878 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -352,6 +356,8 @@
 				1AFAF8B616D35DE700DB1158 /* HelloWorldScene.h */,
 				CA4F3F1519BB5499000D5D85 /* FirstScene.cpp */,
 				CA4F3F1919BB54AA000D5D85 /* FirstScene.h */,
+				CA5CA8D519C34B9C004E73AE /* SecondScene.cpp */,
+				CA5CA8DA19C34BAD004E73AE /* SecondScene.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -688,6 +694,7 @@
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
+				CA5CA8D619C34B9C004E73AE /* SecondScene.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				1AFAF8B816D35DE700DB1158 /* HelloWorldScene.cpp in Sources */,
 				CA4F3F1619BB5499000D5D85 /* FirstScene.cpp in Sources */,
@@ -698,6 +705,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA5CA8D719C34B9C004E73AE /* SecondScene.cpp in Sources */,
 				5087E75717EB910900C73F5D /* AppDelegate.cpp in Sources */,
 				CA4F3F1A19BB55EF000D5D85 /* FirstScene.cpp in Sources */,
 				5087E75817EB910900C73F5D /* HelloWorldScene.cpp in Sources */,
