@@ -23,7 +23,7 @@ bool SecondScene::init()
 {
     //////////////////////////////
     // 1. super init first
-    if ( !Layer::init() )
+    if ( !LayerColor::initWithColor(Color4B::BLUE) )
     {
         return false;
     }
@@ -55,7 +55,7 @@ bool SecondScene::init()
     // add a label shows "Hello World"
     // create and initialize a label
     
-    auto label = LabelTTF::create("Second Scene", "Arial", 24);
+    auto label = LabelTTF::create("Second Scene \nwith Colored Background", "Arial", 24);
     
     // position the label on the center of the screen
     label->setPosition(Vec2(origin.x + visibleSize.width/2,
