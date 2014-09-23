@@ -70,6 +70,8 @@ bool SecondScene::init()
     button->setPosition(Vec2(layerSize.width/2, layerSize.height/2));
     button->setPressedActionEnabled(true);
     button->addTouchEventListener(CC_CALLBACK_2(SecondScene::onButtonTouchEvent, this));
+    button->setTitleFontSize(36.0f);
+    button->setTitleText("Back");
     this->addChild(button, 10);
     
     return true;

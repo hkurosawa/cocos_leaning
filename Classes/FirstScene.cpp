@@ -12,7 +12,7 @@ Scene* FirstScene::createScene()
     auto layer = FirstScene::create();
 
     // add layer as a child to scene
-    scene->addChild(layer);
+    scene->addChild(layer, 0, "rootLayer");
 
     // return the scene
     return scene;
@@ -55,7 +55,7 @@ bool FirstScene::init()
     // add a label shows "Hello World"
     // create and initialize a label
     
-    auto label = LabelTTF::create("First Scene", "Arial", 24);
+    auto label = LabelTTF::create("First Scene\nUsing Layout", "Arial", 24);
     
     // position the label on the center of the screen
     label->setPosition(Vec2(origin.x + visibleSize.width/2,
@@ -63,19 +63,59 @@ bool FirstScene::init()
 
     // add the label as a child to this layer
     this->addChild(label, 1);
+    Size layerSize = this->getContentSize();
+    
+    // Create the layout
+    ui::Layout* layout = ui::Layout::create();
+    layout->setLayoutType(ui::Layout::Type::VERTICAL);
+    layout->setContentSize(Size(this->getContentSize().width-40, 300));//Button height is 80px
+    layout->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+    CCLOG("%f, %f", layout->getAnchorPoint().x, layout->getAnchorPoint().y);
+    layout->setPosition(Vec2(layerSize.width/2, layerSize.height/2));
+    layout->setBackGroundColorType(ui::Layout::BackGroundColorType::SOLID);
+    layout->setBackGroundColor(Color3B(64, 64, 64));
+    this->addChild(layout);
     
     auto button = cocos2d::ui::Button::create();
     button->loadTextures("button.png", "button_r.png");
-    Size layerSize = this->getContentSize();
-    button->setPosition(Vec2(layerSize.width/2, layerSize.height/2));
+    button->setPosition(Vec2(layout->getContentSize().width / 2.0f, layout->getContentSize().height / 2.0f));
     button->setPressedActionEnabled(true);
     button->addTouchEventListener(CC_CALLBACK_2(FirstScene::onButtonTouchEvent, this));
-    this->addChild(button, 10);
+    button->setTitleFontSize(24.0f);
+    button->setTitleText("Colored\nBackground");
+    layout->addChild(button, 10);
+    
+    ui::LinearLayoutParameter* lp = ui::LinearLayoutParameter::create();
+    button->setLayoutParameter(lp);
+    lp->setGravity(ui::LinearLayoutParameter::LinearGravity::CENTER_HORIZONTAL);
+    lp->setMargin(ui::Margin(0.0f, 10.0f, 0.0f, 10.0f));
+    
+    auto button2 = cocos2d::ui::Button::create();
+    button2->loadTextures("button.png", "button_r.png");
+    button2->setPosition(Vec2(layout->getContentSize().width / 2.0f, layout->getContentSize().height / 2.0f+100));
+    button2->setPressedActionEnabled(true);
+    button2->addTouchEventListener(CC_CALLBACK_2(FirstScene::onButton2TouchEvent, this));
+    button2->setTitleFontSize(24.0f);
+    button2->setTitleText("Button 2");
+    button2->setLayoutParameter(lp);
+    layout->addChild(button2, 10);
+    
+    auto button3 = cocos2d::ui::Button::create();
+    button3->loadTextures("button.png", "button_r.png");
+    button3->setPosition(Vec2(layout->getContentSize().width / 2.0f, layout->getContentSize().height / 2.0f+100));
+    button3->setPressedActionEnabled(true);
+    button3->addTouchEventListener(CC_CALLBACK_2(FirstScene::onButton3TouchEvent, this));
+    button3->setTitleFontSize(24.0f);
+    button3->setTitleText("Button 3");
+    button3->setLayoutParameter(lp);
+    layout->addChild(button3, 10);
     
     return true;
 }
 
+
 void FirstScene::onButtonTouchEvent(Ref* pSender, cocos2d::ui::Widget::TouchEventType type) {
+    CCLOG("Button1");
     switch (type) {
         case cocos2d::ui::Widget::TouchEventType::BEGAN:
             CCLOG("BEGAN");
@@ -91,6 +131,12 @@ void FirstScene::onButtonTouchEvent(Ref* pSender, cocos2d::ui::Widget::TouchEven
             CCLOG("CANCELED");
             break;
     }
+}
+void FirstScene::onButton2TouchEvent(Ref* pSender, cocos2d::ui::Widget::TouchEventType type) {
+    CCLOG("Button2");
+}
+void FirstScene::onButton3TouchEvent(Ref* pSender, cocos2d::ui::Widget::TouchEventType type) {
+    CCLOG("Button3");
 }
 
 void FirstScene::menuCloseCallback(Ref* pSender)
