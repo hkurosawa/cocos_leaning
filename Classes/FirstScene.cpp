@@ -1,5 +1,7 @@
 #include "FirstScene.h"
 #include "SecondScene.h"
+#include "ThirdScene.h"
+
 
 USING_NS_CC;
 
@@ -82,7 +84,7 @@ bool FirstScene::init()
     button->setPressedActionEnabled(true);
     button->addTouchEventListener(CC_CALLBACK_2(FirstScene::onButtonTouchEvent, this));
     button->setTitleFontSize(24.0f);
-    button->setTitleText("Colored\nBackground");
+    button->setTitleText("2.Colored\nBackground");
     layout->addChild(button, 10);
     
     ui::LinearLayoutParameter* lp = ui::LinearLayoutParameter::create();
@@ -96,7 +98,7 @@ bool FirstScene::init()
     button2->setPressedActionEnabled(true);
     button2->addTouchEventListener(CC_CALLBACK_2(FirstScene::onButton2TouchEvent, this));
     button2->setTitleFontSize(24.0f);
-    button2->setTitleText("Button 2");
+    button2->setTitleText("3.Using Mainloop");
     button2->setLayoutParameter(lp);
     layout->addChild(button2, 10);
     
@@ -134,6 +136,21 @@ void FirstScene::onButtonTouchEvent(Ref* pSender, cocos2d::ui::Widget::TouchEven
 }
 void FirstScene::onButton2TouchEvent(Ref* pSender, cocos2d::ui::Widget::TouchEventType type) {
     CCLOG("Button2");
+    switch (type) {
+        case cocos2d::ui::Widget::TouchEventType::BEGAN:
+            CCLOG("BEGAN");
+            break;
+        case cocos2d::ui::Widget::TouchEventType::MOVED:
+            CCLOG("MOVED");
+            break;
+        case cocos2d::ui::Widget::TouchEventType::ENDED:
+            CCLOG("ENDED");
+            Director::getInstance()->replaceScene(TransitionFade::create(1.0f, ThirdScene::createScene()));
+            break;
+        case cocos2d::ui::Widget::TouchEventType::CANCELED:
+            CCLOG("CANCELED");
+            break;
+    }
 }
 void FirstScene::onButton3TouchEvent(Ref* pSender, cocos2d::ui::Widget::TouchEventType type) {
     CCLOG("Button3");
