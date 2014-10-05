@@ -21,6 +21,7 @@ public:
     
     void onButtonTouchEvent(Ref* pSender, cocos2d::ui::Widget::TouchEventType type);
     void update(float delta);
+
 private:
     int counter;
 };

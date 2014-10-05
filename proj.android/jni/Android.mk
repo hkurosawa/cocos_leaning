@@ -14,7 +14,9 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/AppDelegate.cpp \
                    ../../Classes/HelloWorldScene.cpp \
                    ../../Classes/FirstScene.cpp \
-                   ../../Classes/SecondScene.cpp
+                   ../../Classes/SecondScene.cpp \
+                   ../../Classes/ThirdScene.cpp \
+                   ../../Classes/MySprite.cpp
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 

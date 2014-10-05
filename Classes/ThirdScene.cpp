@@ -1,5 +1,6 @@
 #include "FirstScene.h"
 #include "ThirdScene.h"
+#include "MySprite.h"
 
 USING_NS_CC;
 
@@ -21,6 +22,8 @@ Scene* ThirdScene::createScene()
 // on "init" you need to initialize your instance
 bool ThirdScene::init()
 {
+    CCLOG("init scene");
+    
     //////////////////////////////
     // 1. super init first
     if ( !LayerColor::initWithColor(Color4B::GRAY) )
@@ -62,7 +65,7 @@ bool ThirdScene::init()
                             origin.y + visibleSize.height - label->getContentSize().height));
 
     // add the label as a child to this layer
-    this->addChild(label, 1);
+    this->addChild(label, 4);
     
     auto label2 = LabelTTF::create("ABC", "Arial", 24);
     
@@ -71,7 +74,8 @@ bool ThirdScene::init()
                             origin.y + visibleSize.height - label->getContentSize().height*3));
     
     // add the label as a child to this layer
-    this->addChild(label2, 2, "aLabel");
+    this->addChild(label2, 3, "aLabel");
+    
     
     auto button = cocos2d::ui::Button::create();
     button->loadTextures("button.png", "button_r.png");
@@ -81,12 +85,22 @@ bool ThirdScene::init()
     button->addTouchEventListener(CC_CALLBACK_2(ThirdScene::onButtonTouchEvent, this));
     button->setTitleFontSize(36.0f);
     button->setTitleText("Back");
-    this->addChild(button, 10);
+    this->addChild(button, 1);
     
     // activate mainloop void update(float delta) method
     this->scheduleUpdate();
     
     this->counter = 0;
+    
+    auto sprite = MySprite::create();
+    sprite->setTexture("sprite_blue.png");
+    //位置を設定
+    Size s = this->getContentSize();
+    sprite->setPosition(Vec2(s.width/2,s.height/2));
+    //画面に追加をしています。
+    sprite->scheduleUpdate();
+    this->addChild(sprite, 2, "aSprite"); //bigger numbers = front
+    
     return true;
 }
 
@@ -100,6 +114,7 @@ void ThirdScene::onButtonTouchEvent(Ref* pSender, cocos2d::ui::Widget::TouchEven
             break;
         case cocos2d::ui::Widget::TouchEventType::ENDED:
             CCLOG("ENDED");
+            this->getChildByName("aSprite")->removeFromParent();
             Director::getInstance()->replaceScene(TransitionFlipX::create(1.0f, FirstScene::createScene()));
             break;
         case cocos2d::ui::Widget::TouchEventType::CANCELED:
@@ -115,7 +130,6 @@ void ThirdScene::update(float delta) {
     std::string ss(s);
     label->setString("update/delta: " + std::to_string(delta) + "\nframe: " + ss);
 }
-
 
 void ThirdScene::menuCloseCallback(Ref* pSender)
 {
