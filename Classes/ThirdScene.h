@@ -22,6 +22,11 @@ public:
     void onButtonTouchEvent(Ref* pSender, cocos2d::ui::Widget::TouchEventType type);
     void update(float delta);
 
+    bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
+    void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event);
+    void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
+    void onTouchCancelled(cocos2d::Touch* touch, cocos2d::Event* event);
+
 private:
     int counter;
 };

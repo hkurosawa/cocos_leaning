@@ -23,7 +23,7 @@ void MySprite::onEnter() {
 
 void MySprite::update(float delta) {
     Vec2 p = this->getPosition();
-    CCLOG("Sprite update: %f, %f", p.x, p.y);
+    //CCLOG("Sprite update: %f, %f", p.x, p.y);
 
     if (p.x<0||p.x>this->getParent()->getContentSize().width) {
         this->dx *= -1;

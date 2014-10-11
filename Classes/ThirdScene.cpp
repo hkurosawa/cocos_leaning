@@ -89,9 +89,9 @@ bool ThirdScene::init()
     
     // activate mainloop void update(float delta) method
     this->scheduleUpdate();
-    
     this->counter = 0;
     
+    // adding sprite
     auto sprite = MySprite::create();
     sprite->setTexture("sprite_blue.png");
     //位置を設定
@@ -101,6 +101,15 @@ bool ThirdScene::init()
     sprite->scheduleUpdate();
     this->addChild(sprite, 2, "aSprite"); //bigger numbers = front
     
+    // getting touch event on Layer
+    this->setTouchMode(Touch::DispatchMode::ONE_BY_ONE);
+    auto listener = EventListenerTouchOneByOne::create();
+    listener->setSwallowTouches(true);
+    listener->onTouchBegan = CC_CALLBACK_2(ThirdScene::onTouchBegan, this);
+    listener->onTouchMoved = CC_CALLBACK_2(ThirdScene::onTouchMoved, this);
+    listener->onTouchEnded = CC_CALLBACK_2(ThirdScene::onTouchEnded, this);
+    listener->onTouchCancelled = CC_CALLBACK_2(ThirdScene::onTouchCancelled, this);
+    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
     return true;
 }
 
@@ -129,6 +138,27 @@ void ThirdScene::update(float delta) {
     sprintf(s, "%02d", counter++%60);
     std::string ss(s);
     label->setString("update/delta: " + std::to_string(delta) + "\nframe: " + ss);
+}
+
+bool ThirdScene::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event) {
+    auto pos = touch->getLocation();
+    CCLOG("onTouchBegan: %f, %f", pos.x, pos.y);
+    return true;
+}
+
+void ThirdScene::onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event) {
+    auto pos = touch->getLocation();
+    CCLOG("onTouchMoved: %f, %f", pos.x, pos.y);
+}
+
+void ThirdScene::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event) {
+    auto pos = touch->getLocation();
+    CCLOG("onTouchEnded: %f, %f", pos.x, pos.y);
+}
+
+void ThirdScene::onTouchCancelled(cocos2d::Touch* touch, cocos2d::Event* event) {
+    auto pos = touch->getLocation();
+    CCLOG("onTouchCancelled: %f, %f", pos.x, pos.y);
 }
 
 void ThirdScene::menuCloseCallback(Ref* pSender)
