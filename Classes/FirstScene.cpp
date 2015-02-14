@@ -108,7 +108,7 @@ bool FirstScene::init()
     button3->setPressedActionEnabled(true);
     button3->addTouchEventListener(CC_CALLBACK_2(FirstScene::onButton3TouchEvent, this));
     button3->setTitleFontSize(24.0f);
-    button3->setTitleText("Button 3");
+    button3->setTitleText("4.Sound Tester");
     button3->setLayoutParameter(lp);
     layout->addChild(button3, 10);
     
@@ -154,6 +154,21 @@ void FirstScene::onButton2TouchEvent(Ref* pSender, cocos2d::ui::Widget::TouchEve
 }
 void FirstScene::onButton3TouchEvent(Ref* pSender, cocos2d::ui::Widget::TouchEventType type) {
     CCLOG("Button3");
+    switch (type) {
+        case cocos2d::ui::Widget::TouchEventType::BEGAN:
+            CCLOG("BEGAN");
+            break;
+        case cocos2d::ui::Widget::TouchEventType::MOVED:
+            CCLOG("MOVED");
+            break;
+        case cocos2d::ui::Widget::TouchEventType::ENDED:
+            CCLOG("ENDED");
+            Director::getInstance()->replaceScene(TransitionFade::create(1.0f, ThirdScene::createScene()));
+            break;
+        case cocos2d::ui::Widget::TouchEventType::CANCELED:
+            CCLOG("CANCELED");
+            break;
+    }
 }
 
 void FirstScene::menuCloseCallback(Ref* pSender)

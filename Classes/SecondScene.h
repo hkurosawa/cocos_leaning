@@ -20,7 +20,6 @@ public:
     CREATE_FUNC(SecondScene);
     
     void onButtonTouchEvent(Ref* pSender, cocos2d::ui::Widget::TouchEventType type);
-
 };
 
 #endif // __SECONDSCENE_SCENE_H__

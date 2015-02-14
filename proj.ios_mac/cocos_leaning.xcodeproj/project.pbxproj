@@ -83,6 +83,10 @@
 		CAB0EA3619D32674005D1F07 /* sprite_green.png in Resources */ = {isa = PBXBuildFile; fileRef = CAB0EA3119D32674005D1F07 /* sprite_green.png */; };
 		CAB0EA3719D32674005D1F07 /* sprite_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = CAB0EA3219D32674005D1F07 /* sprite_yellow.png */; };
 		CAB0EA3819D32674005D1F07 /* sprite_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = CAB0EA3219D32674005D1F07 /* sprite_yellow.png */; };
+		CADF7B941A8F3D2900505279 /* background-music-aac.wav in Resources */ = {isa = PBXBuildFile; fileRef = CADF7B931A8F3D2900505279 /* background-music-aac.wav */; };
+		CADF7B951A8F3D2900505279 /* background-music-aac.wav in Resources */ = {isa = PBXBuildFile; fileRef = CADF7B931A8F3D2900505279 /* background-music-aac.wav */; };
+		CADF7B991A8F3D3300505279 /* pew-pew-lei.wav in Resources */ = {isa = PBXBuildFile; fileRef = CADF7B981A8F3D3300505279 /* pew-pew-lei.wav */; };
+		CADF7B9A1A8F3D3300505279 /* pew-pew-lei.wav in Resources */ = {isa = PBXBuildFile; fileRef = CADF7B981A8F3D3300505279 /* pew-pew-lei.wav */; };
 		D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620B132DFF330009C878 /* OpenAL.framework */; };
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
@@ -294,6 +298,8 @@
 		CAB0EA3019D32674005D1F07 /* sprite_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprite_blue.png; sourceTree = "<group>"; };
 		CAB0EA3119D32674005D1F07 /* sprite_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprite_green.png; sourceTree = "<group>"; };
 		CAB0EA3219D32674005D1F07 /* sprite_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprite_yellow.png; sourceTree = "<group>"; };
+		CADF7B931A8F3D2900505279 /* background-music-aac.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "background-music-aac.wav"; sourceTree = "<group>"; };
+		CADF7B981A8F3D3300505279 /* pew-pew-lei.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "pew-pew-lei.wav"; sourceTree = "<group>"; };
 		D44C620B132DFF330009C878 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -494,6 +500,8 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CADF7B981A8F3D3300505279 /* pew-pew-lei.wav */,
+				CADF7B931A8F3D2900505279 /* background-music-aac.wav */,
 				CAB0EA3019D32674005D1F07 /* sprite_blue.png */,
 				CAB0EA3119D32674005D1F07 /* sprite_green.png */,
 				CAB0EA3219D32674005D1F07 /* sprite_yellow.png */,
@@ -688,6 +696,8 @@
 				1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
+				CADF7B991A8F3D3300505279 /* pew-pew-lei.wav in Resources */,
+				CADF7B941A8F3D2900505279 /* background-music-aac.wav in Resources */,
 				CAB0EA3319D32674005D1F07 /* sprite_blue.png in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
@@ -704,7 +714,9 @@
 			files = (
 				CAB0EA3419D32674005D1F07 /* sprite_blue.png in Resources */,
 				CA4F456619BE042A000D5D85 /* button_r.png in Resources */,
+				CADF7B951A8F3D2900505279 /* background-music-aac.wav in Resources */,
 				CAB0EA3619D32674005D1F07 /* sprite_green.png in Resources */,
+				CADF7B9A1A8F3D3300505279 /* pew-pew-lei.wav in Resources */,
 				CA4F456819BE042A000D5D85 /* button.png in Resources */,
 				5087E75317EB910900C73F5D /* CloseNormal.png in Resources */,
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
