@@ -26,7 +26,7 @@ bool ThirdScene::init()
     
     //////////////////////////////
     // 1. super init first
-    if ( !LayerColor::initWithColor(Color4B::GRAY) )
+    if ( !LayerColor::initWithColor(Color4B::BLACK) )
     {
         return false;
     }
@@ -58,7 +58,7 @@ bool ThirdScene::init()
     // add a label shows "Hello World"
     // create and initialize a label
     
-    auto label = LabelTTF::create("3rd Scene \nSound Tester", "Arial", 24);
+    auto label = LabelTTF::create("Second Scene \nwith Colored Background", "Arial", 24);
     
     // position the label on the center of the screen
     label->setPosition(Vec2(origin.x + visibleSize.width/2,
@@ -67,70 +67,39 @@ bool ThirdScene::init()
     // add the label as a child to this layer
     this->addChild(label, 4);
     
-    auto label2 = LabelTTF::create("placeholder", "Arial", 18);
+    auto label2 = LabelTTF::create("ABC", "Arial", 24);
     
     // position the label on the center of the screen
     label2->setPosition(Vec2(origin.x + visibleSize.width/2,
-                            origin.y + visibleSize.height - label->getContentSize().height*2));
+                            origin.y + visibleSize.height - label->getContentSize().height*3));
     
     // add the label as a child to this layer
     this->addChild(label2, 3, "aLabel");
     
-    Size layerSize = this->getContentSize();
-
-    ui::Layout* layout = ui::Layout::create();
-    layout->setLayoutType(ui::Layout::Type::VERTICAL);
-    layout->setContentSize(Size(this->getContentSize().width-40, 300));//Button height is 80px
-    layout->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-    layout->setPosition(Vec2(layerSize.width/2, layerSize.height/2));
-    layout->setBackGroundColorType(ui::Layout::BackGroundColorType::SOLID);
-    layout->setBackGroundColor(Color3B(64, 64, 64));
-    this->addChild(layout, 0, "layout");
-    
-    ui::LinearLayoutParameter* lp = ui::LinearLayoutParameter::create();
-    lp->setGravity(ui::LinearLayoutParameter::LinearGravity::CENTER_HORIZONTAL);
-    lp->setMargin(ui::Margin(0.0f, 10.0f, 0.0f, 10.0f));
-    
-    auto button_play = cocos2d::ui::Button::create();
-    button_play->setLayoutParameter(lp);
-
-    button_play->loadTextures("button.png", "button_r.png");
-    //Size layerSize = this->getContentSize();
-    //button->setPosition(Vec2(layerSize.width/2, layerSize.height/2));
-    button_play->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-    button_play->setPosition(Vec2(layout->getContentSize().width / 2.0f, layout->getContentSize().height / 2.0f));
-    button_play->setPressedActionEnabled(true);
-    button_play->addTouchEventListener(CC_CALLBACK_2(ThirdScene::onPlayButtonTouchEvent, this));
-    button_play->setTitleFontSize(36.0f);
-    button_play->setTitleText("Play BGM");
-    layout->addChild(button_play, 1, "playButton");
     
     auto button = cocos2d::ui::Button::create();
-    button->setLayoutParameter(lp);
     button->loadTextures("button.png", "button_r.png");
-    //Size layerSize = this->getContentSize();
-    //button->setPosition(Vec2(layerSize.width/2, layerSize.height/2));
-    button->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-    button->setPosition(Vec2(layout->getContentSize().width / 2.0f, layout->getContentSize().height / 2.0f));
+    Size layerSize = this->getContentSize();
+    button->setPosition(Vec2(layerSize.width/2, layerSize.height/2));
     button->setPressedActionEnabled(true);
     button->addTouchEventListener(CC_CALLBACK_2(ThirdScene::onButtonTouchEvent, this));
     button->setTitleFontSize(36.0f);
     button->setTitleText("Back");
-    layout->addChild(button, 1);
+    this->addChild(button, 1);
     
     // activate mainloop void update(float delta) method
     this->scheduleUpdate();
     this->counter = 0;
     
     // adding sprite
-    //auto sprite = MySprite::create();
-    //sprite->setTexture("sprite_blue.png");
+    auto sprite = MySprite::create();
+    sprite->setTexture("sprite_blue.png");
     //位置を設定
-    //Size s = this->getContentSize();
-    //sprite->setPosition(Vec2(s.width/2,s.height/2));
+    Size s = this->getContentSize();
+    sprite->setPosition(Vec2(s.width/2,s.height/2));
     //画面に追加をしています。
-    //sprite->scheduleUpdate();
-    //this->addChild(sprite, 2, "aSprite"); //bigger numbers = front
+    sprite->scheduleUpdate();
+    this->addChild(sprite, 2, "aSprite"); //bigger numbers = front
     
     // getting touch event on Layer
     this->setTouchMode(Touch::DispatchMode::ONE_BY_ONE);
@@ -141,38 +110,9 @@ bool ThirdScene::init()
     listener->onTouchEnded = CC_CALLBACK_2(ThirdScene::onTouchEnded, this);
     listener->onTouchCancelled = CC_CALLBACK_2(ThirdScene::onTouchCancelled, this);
     this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
-    
-    auto drawNode = DrawNode::create();
-    this->addChild(drawNode, 3, "drawNode");
-    
-    this->isPlaying = false;
-    //CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("background-music-aac.wav");
-    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("pew-pew-lei.wav");
     return true;
 }
 
-void ThirdScene::onPlayButtonTouchEvent(Ref* pSender, cocos2d::ui::Widget::TouchEventType type) {
-    switch (type) {
-        case cocos2d::ui::Widget::TouchEventType::BEGAN:
-            CCLOG("BEGAN");
-            if (this->isPlaying) {
-                this->stopBgm();
-            } else {
-                this->playBgm();
-            }
-            break;
-        case cocos2d::ui::Widget::TouchEventType::MOVED:
-            CCLOG("MOVED");
-            break;
-        case cocos2d::ui::Widget::TouchEventType::ENDED:
-            CCLOG("ENDED");
-            break;
-        case cocos2d::ui::Widget::TouchEventType::CANCELED:
-            CCLOG("CANCELED");
-            break;
-    }
-}
-    
 void ThirdScene::onButtonTouchEvent(Ref* pSender, cocos2d::ui::Widget::TouchEventType type) {
     switch (type) {
         case cocos2d::ui::Widget::TouchEventType::BEGAN:
@@ -183,9 +123,7 @@ void ThirdScene::onButtonTouchEvent(Ref* pSender, cocos2d::ui::Widget::TouchEven
             break;
         case cocos2d::ui::Widget::TouchEventType::ENDED:
             CCLOG("ENDED");
-            //this->getChildByName("aSprite")->removeFromParent();
-            CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
-            CocosDenshion::SimpleAudioEngine::getInstance()->unloadEffect("");
+            this->getChildByName("aSprite")->removeFromParent();
             Director::getInstance()->replaceScene(TransitionFlipX::create(1.0f, FirstScene::createScene()));
             break;
         case cocos2d::ui::Widget::TouchEventType::CANCELED:
@@ -205,9 +143,6 @@ void ThirdScene::update(float delta) {
 bool ThirdScene::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event) {
     auto pos = touch->getLocation();
     CCLOG("onTouchBegan: %f, %f", pos.x, pos.y);
-    float pitch = pos.y / 320.0f;
-    float pan = (pos.x - 480.0f) / 480.0f; //-1.0f to 1.0f
-    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("pew-pew-lei.wav", 0, pitch, pan);
     return true;
 }
 
@@ -226,24 +161,6 @@ void ThirdScene::onTouchCancelled(cocos2d::Touch* touch, cocos2d::Event* event) 
     CCLOG("onTouchCancelled: %f, %f", pos.x, pos.y);
 }
 
-void ThirdScene::draw(cocos2d::Renderer *renderer, const Mat4 &transform, uint32_t flags) {
-    //CCLOG("draw");
-    //DrawPrimitives::drawLine(Vec2(0.0f, 0.0f), Vec2(100.0f, 100.0f));
-    /*
-    Vector<Vec2> v = Vector<Vec2>(5);
-    v.pushBack(Vec2(0.0f, 0.0f));
-    v.pushBack(Vec2(100.0f, 100.0f));
-    v.pushBack(Vec2(200.0f, 120.0f));
-    v.pushBack(Vec2(210.0f, 60.0f));
-    v.pushBack(Vec2(300.0f, 320.0f));
-     */
-    //Vec2 v[] = { Vec2(30,130), Vec2(30,230), Vec2(50,200) };
-    //DrawPrimitives::drawPoly(v, 3, false);
-    //DrawNode *node = dynamic_cast<DrawNode*>(this->getChildByName("drawNode"));
-    //node->drawPolygon(v, 3, Color4F(1.0f, 0.0f, 0.0f, 1.0f), 2.0f, Color4F(0.0f, 1.0f, 0.0f, 1.0f));
-}
-
-
 void ThirdScene::menuCloseCallback(Ref* pSender)
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WP8) || (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT)
@@ -256,24 +173,4 @@ void ThirdScene::menuCloseCallback(Ref* pSender)
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     exit(0);
 #endif
-}
-
-void ThirdScene::playBgm()
-{
-    CCLOG("playBgm");
-    auto layout = dynamic_cast<cocos2d::ui::Layout*>(this->getChildByName("layout"));
-    auto button = dynamic_cast<cocos2d::ui::Button*>(layout->getChildByName("playButton"));
-    CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("background-music-aac.wav", true);//maybe needs to implement pre-load
-    button->setTitleText("Stop BGM");
-    this->isPlaying = true;
-}
-
-void ThirdScene::stopBgm()
-{
-    CCLOG("stopBgm");
-    auto layout = dynamic_cast<cocos2d::ui::Layout*>(this->getChildByName("layout"));
-    auto button = dynamic_cast<cocos2d::ui::Button*>(layout->getChildByName("playButton"));
-    CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
-    button->setTitleText("Play BGM");
-    this->isPlaying = false;
 }

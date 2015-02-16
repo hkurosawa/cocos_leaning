@@ -1,7 +1,7 @@
 #include "FirstScene.h"
 #include "SecondScene.h"
 #include "ThirdScene.h"
-
+#include "FourthScene.h"
 
 USING_NS_CC;
 
@@ -163,7 +163,7 @@ void FirstScene::onButton3TouchEvent(Ref* pSender, cocos2d::ui::Widget::TouchEve
             break;
         case cocos2d::ui::Widget::TouchEventType::ENDED:
             CCLOG("ENDED");
-            Director::getInstance()->replaceScene(TransitionFade::create(1.0f, ThirdScene::createScene()));
+            Director::getInstance()->replaceScene(TransitionFade::create(1.0f, FourthScene::createScene()));
             break;
         case cocos2d::ui::Widget::TouchEventType::CANCELED:
             CCLOG("CANCELED");

@@ -73,6 +73,8 @@
 		CA4F456819BE042A000D5D85 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = CA4F456419BE042A000D5D85 /* button.png */; };
 		CA5CA8D619C34B9C004E73AE /* SecondScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CA5CA8D519C34B9C004E73AE /* SecondScene.cpp */; };
 		CA5CA8D719C34B9C004E73AE /* SecondScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CA5CA8D519C34B9C004E73AE /* SecondScene.cpp */; };
+		CA655CE81A90F94F009FFCCB /* FourthScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CA655CE71A90F94F009FFCCB /* FourthScene.cpp */; };
+		CA655CE91A90FB61009FFCCB /* FourthScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CA655CE71A90F94F009FFCCB /* FourthScene.cpp */; };
 		CAB0EA2A19D1AA3A005D1F07 /* ThirdScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CAB0EA2919D1AA3A005D1F07 /* ThirdScene.cpp */; };
 		CAB0EA2B19D1AC66005D1F07 /* ThirdScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CAB0EA2919D1AA3A005D1F07 /* ThirdScene.cpp */; };
 		CAB0EA2E19D32620005D1F07 /* MySprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CAB0EA2D19D32620005D1F07 /* MySprite.cpp */; };
@@ -291,6 +293,8 @@
 		CA4F456419BE042A000D5D85 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
 		CA5CA8D519C34B9C004E73AE /* SecondScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SecondScene.cpp; path = ../Classes/SecondScene.cpp; sourceTree = "<group>"; };
 		CA5CA8DA19C34BAD004E73AE /* SecondScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecondScene.h; path = ../Classes/SecondScene.h; sourceTree = "<group>"; };
+		CA655CE41A90F941009FFCCB /* FourthScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FourthScene.h; path = ../Classes/FourthScene.h; sourceTree = "<group>"; };
+		CA655CE71A90F94F009FFCCB /* FourthScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FourthScene.cpp; path = ../Classes/FourthScene.cpp; sourceTree = "<group>"; };
 		CAB0EA2619D1AA2D005D1F07 /* ThirdScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThirdScene.h; path = ../Classes/ThirdScene.h; sourceTree = "<group>"; };
 		CAB0EA2919D1AA3A005D1F07 /* ThirdScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ThirdScene.cpp; path = ../Classes/ThirdScene.cpp; sourceTree = "<group>"; };
 		CAB0EA2C19D3258D005D1F07 /* MySprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MySprite.h; path = ../Classes/MySprite.h; sourceTree = "<group>"; };
@@ -383,6 +387,8 @@
 				CA5CA8DA19C34BAD004E73AE /* SecondScene.h */,
 				CAB0EA2919D1AA3A005D1F07 /* ThirdScene.cpp */,
 				CAB0EA2619D1AA2D005D1F07 /* ThirdScene.h */,
+				CA655CE71A90F94F009FFCCB /* FourthScene.cpp */,
+				CA655CE41A90F941009FFCCB /* FourthScene.h */,
 				CAB0EA2D19D32620005D1F07 /* MySprite.cpp */,
 				CAB0EA2C19D3258D005D1F07 /* MySprite.h */,
 			);
@@ -739,6 +745,7 @@
 				CAB0EA2E19D32620005D1F07 /* MySprite.cpp in Sources */,
 				CA5CA8D619C34B9C004E73AE /* SecondScene.cpp in Sources */,
 				CAB0EA2A19D1AA3A005D1F07 /* ThirdScene.cpp in Sources */,
+				CA655CE81A90F94F009FFCCB /* FourthScene.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				1AFAF8B816D35DE700DB1158 /* HelloWorldScene.cpp in Sources */,
 				CA4F3F1619BB5499000D5D85 /* FirstScene.cpp in Sources */,
@@ -755,6 +762,7 @@
 				CAB0EA2F19D32620005D1F07 /* MySprite.cpp in Sources */,
 				CA4F3F1A19BB55EF000D5D85 /* FirstScene.cpp in Sources */,
 				5087E75817EB910900C73F5D /* HelloWorldScene.cpp in Sources */,
+				CA655CE91A90FB61009FFCCB /* FourthScene.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
